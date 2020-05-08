@@ -64,94 +64,12 @@
                 </tr>
                 {% endfor %}
             </table>
-<!--
-        <div class="card-deck">
-            {% for data in carlist %}
-
-                <div class="card mb-4 h-100 col-sm-6 col-md-4 col-lg-3">
-                  <img class="card-img-top" src="..." alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
-                    <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
-                    <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
-                    <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
-                  </div>
-                  <div class="card-footer">
-                    <small class="text-muted">Added at this time</small>
-                  </div>
-                </div>
-            {% endfor %}
-        </div>
-
-    
-        <div class="row">
-            {% for data in carlist %}
-            <div class="column">
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
-                        <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
-                        <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
-                        <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Added at this time</small>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-          </div>
-
-
-          <div class="container mt-3">
-            <div class="row">
-                {% for data in carlist %}
-                    <div class="card col-lg-4">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
-                            <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
-                            <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
-                            <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Added at this time</small>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-
-
-    
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                {% for data in carlist %}
-                <div class="col mb-4">
-                    <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
-                        <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
-                        <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
-                        <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Added at this time</small>
-                    </div>
-                    </div>
-                </div>
-                 {% endfor %}
-                </div>
--->               
                 <div class="container-fluid">
                     <div class="row">
-                        {% for data in carlist %} 
+                        {% for data in carlist %}
                         <div class="col-lg-2 col-md-3 col-6" style="margin-bottom:10px;">
                             <div class="card card-default">
-                                <img class="card-img-top" src="..." alt="Card image cap">
+                                <img class="card-img-top" src="{{ url_for('static', filename='images/' + carlist[data]['Brand'] + '_logo.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
                                     <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
@@ -166,6 +84,6 @@
                         {% endfor %}
                     </div>
                 </div>
- 
+
     </body>
 </html>

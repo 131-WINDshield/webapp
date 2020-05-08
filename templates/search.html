@@ -37,37 +37,44 @@
         <br>
     <form method = "POST">
         <div class="container">
-            <div class="input-group">
+            <div class="searchStyle">
                 <select name="type" id="type">
+                    <option>Select sorting category</option>
                     <option type = 'mpg'>mpg</option>
                     <option type = 'mileage'>mileage</option>
                     <option type = 'Brand'>Brand</option>
                 </select>
                 <input name="searched" type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-append">   
+                <span class="input-group-append">
                     <p><input type="submit"></p>
                 </span>
             </div>
         </div>
     </form>
+    <!-- <form id="searchForm">
+        <div class="container">
+            <div class="searchStyle">
+                <select id="searchType" required>
+                    <option>Select sorting category</option>
+                    <option value="mpg"> mpg </option>
+                    <option value="mileage"> mileage </option>
+                    <option value="Brand"> Brand </option>
+                </select>
+                <input id="searchValue" required>
+                <input type="submit" value="Search" name="btn">
+            </div>
+        </div>
+    </form> -->
     <div>
         {{Searched}}
-        
-<!--
-        {% for i in range(Searched| length) %}
-        {{Searched[i]['Brand']}}
-        {{Searched[i]['Name']}}
-        {{Searched[i]['mpg']}}
-        {{Searched[i]['mileage']}}
-        {% endfor %}
--->     {% if Searched is defined%}
+        {% if Searched is defined%}
         {% if Searched[0]|length > 2%}
         <div class="container-fluid">
-            <div class="row">  
+            <div class="row">
                 {% for i in range(Searched| length) %}
                 <div class="col-lg-2 col-md-3 col-6" style="margin-bottom:10px;">
                     <div class="card card-default">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="{{ url_for('static', filename='images/' + Searched[i]['Brand'] + '_logo.png') }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{Searched[i]['Brand']}}</h5>
                             <p class="card-text">Owner: {{Searched[i]['Name']}}</p>
@@ -81,10 +88,10 @@
                 </div>
                 {% endfor %}
             </div>
-            
         </div>
         {% endif %}
         {% endif %}
     </div>
 </body>
+<script type="text/javascript" src="{{ url_for('static', filename='js/search.js') }}"></script>
 </html>
