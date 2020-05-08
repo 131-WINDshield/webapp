@@ -1,4 +1,3 @@
-
 from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
@@ -36,9 +35,13 @@ def my_form():
 @app.route('/', methods=['POST'])
 def login():
     i = len(carlist)
-    carlist[i] = {'Name': request.form['name'], 'Brand': request.form['brand'], 'mileage': int(request.form['mileage']), 'mpg': int(request.form['mpg'])}
+    carlist[i] = {'Name': request.form['name'].strip(), 'Brand': request.form['brand'].strip(), 'mileage': int(request.form['mileage']), 'mpg': int(request.form['mpg'])}
 
     return redirect(url_for('printing'))
+
+@app.route('/front')
+def front():
+    return render_template('front.html')
 
 
 @app.route('/print')
@@ -61,9 +64,13 @@ def search():
 def find():
     type = request.form['type']
     searchlist = []
+    print(searchlist)
     searched = request.form['searched']
+    if searched == "":
+        searchlist = "Please type in something to search"
+        return render_template('search.html', Searched=searchlist)
     if type == "mpg" or type == "mileage":
-        if searched.isdigit:
+        if searched.isdigit():
             rangelow = round(float(searched) * 0.95)
             rangehigh = round(float(searched) *1.05)
             for i in range(len(carlist)):
