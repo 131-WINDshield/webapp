@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DATA</title>
+    </head>
+    <body>
+            <form method="POST">
+            <label for="filter">
+               <h3>Sort Type</h3>
+                <select name="type" id="type">
+                    <option>mpg</option>
+                    <option>mileage</option>
+                </select>
+                <input type="submit">
+            </label>
+        </form>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Mileage</th>
+                    <th>MPG</th>
+                </tr>
+                {% for data in carlist %}
+                <tr>
+                    {% for items in carlist[data] %}
+                    <td>{{carlist[data][items]}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+    </body>
+</html>
