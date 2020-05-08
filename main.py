@@ -151,13 +151,13 @@ def find():
 
 
 
-# @manager.command
-# def run():
-#     app.run()
+@manager.command
+def run():
+    app.run()
 
 
-# if __name__ == '__main__':
-#     manager.run()
+if __name__ == '__main__':
+    manager.run()
 
 # Cache Busting
 # For some reason, browsers like to cache css files
