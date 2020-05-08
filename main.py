@@ -1,4 +1,3 @@
-
 from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
@@ -36,7 +35,7 @@ def my_form():
 @app.route('/', methods=['POST'])
 def login():
     i = len(carlist)
-    carlist[i] = {'HASH': 0, 'Name': request.form['name'], 'Brand': request.form['brand'], 'mileage': request.form['mileage'], 'mpg': request.form['mpg']}
+    carlist[i] = {'Name': request.form['name'], 'Brand': request.form['brand'], 'mileage': int(request.form['mileage']), 'mpg': int(request.form['mpg'])}
 
     return redirect(url_for('printing'))
 
@@ -50,6 +49,11 @@ def printing():
 def sorting():
     qsort(request.form['type'], carlist, 0, len(carlist)-1)
     return render_template("print.html", carlist=carlist)
+
+
+@app.route('/search')
+def search():
+    return render_template('search.html', carlist=carlist)
 
 
 if __name__ == '__main__':

@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DATA</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-    <script src="index.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -25,11 +23,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/print#">View Cars</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Add A Car</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/search#">Search For A Car</a>
+                        <a class="nav-link" href="/#">Add A Car</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Search For A Car</a>
                     </li>
                 </ul>
             </div>
@@ -37,15 +35,15 @@
         </nav>
         <br>
         <br>
+        
+        <div class="container">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-search" type="button"><i class="fa fa-search fa-fw"></i> Search</button>
+                  </span>
+            </div>
+        </div>
 
-<form method="POST">
-    <p>Car form</p>
-    <p>Name <input name="name"></p>
-    <p>Brand <input name="brand"></p>
-    <p>Mileage <input name="mileage"></p>
-    <p>Mpg <input name="mpg"></p>
-    <p><input type="submit"></p>
-
-</form>
 </body>
 </html>

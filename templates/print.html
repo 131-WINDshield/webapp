@@ -3,9 +3,42 @@
     <head>
         <meta charset="UTF-8">
         <title>DATA</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     </head>
     <body>
-            <form method="POST">
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/print#">View Cars</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#">Add A Car</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/search#">Search For A Car</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </nav>
+            <br>
+            <br>
+
+        <form method="POST">
             <label for="filter">
                <h3>Sort Type</h3>
                 <select name="type" id="type">
@@ -15,6 +48,7 @@
                 <input type="submit">
             </label>
         </form>
+
             <table>
                 <tr>
                     <th>Name</th>
@@ -30,5 +64,67 @@
                 </tr>
                 {% endfor %}
             </table>
+<!--
+        <div class="card-deck">
+            {% for data in carlist %}
+
+                <div class="card mb-4 h-100 col-sm-6 col-md-4 col-lg-3">
+                  <img class="card-img-top" src="..." alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
+                    <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
+                    <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
+                    <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">Added at this time</small>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+-->
+        <div class="row">
+            {% for data in carlist %}
+            <div class="column">
+                <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
+                    <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
+                    <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
+                    <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Added at this time</small>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+
+
+
+
+    
+<!--
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                {% for data in carlist %}
+                <div class="col mb-4">
+                    <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{carlist[data]['Brand']}}</h5>
+                        <p class="card-text">Owner: {{carlist[data]['Name']}}</p>
+                        <p class="card-text">Mpg: {{carlist[data]['mpg']}}</p>
+                        <p class="card-text">Mileage: {{carlist[data]['mileage']}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Added at this time</small>
+                    </div>
+                    </div>
+                </div>
+                 {% endfor %}
+                </div>
+ -->
     </body>
 </html>
