@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>DATA</title>
+    <title>CarFax</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -35,15 +35,22 @@
         </nav>
         <br>
         <br>
-        
+    <form method = "POST">
         <div class="container">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-search" type="button"><i class="fa fa-search fa-fw"></i> Search</button>
+                <select name="type" id="type">
+                    <option type = 'mpg'>mpg</option>
+                    <option type = 'mileage'>mileage</option>
+                    <option type = 'Brand'>Brand</option>
+                </select>
+                <input name="searched" type="text" class="form-control" placeholder="Search for...">
+                    <p><input type="submit"></p>
                   </span>
             </div>
         </div>
-
+    </form>
+    <div>
+        {{Searched}}
+    </div>
 </body>
 </html>

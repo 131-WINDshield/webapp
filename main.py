@@ -1,3 +1,4 @@
+
 from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__)
@@ -54,6 +55,32 @@ def sorting():
 @app.route('/search')
 def search():
     return render_template('search.html', carlist=carlist)
+
+
+@app.route('/search', methods=['POST'])
+def find():
+    type = request.form['type']
+    searchlist = []
+    searched = request.form['searched']
+    if type == "mpg" or type == "mileage":
+        if searched.isdigit:
+            rangelow = round(float(searched) * 0.95)
+            rangehigh = round(float(searched) *1.05)
+            for i in range(len(carlist)):
+                if rangehigh > carlist[i][type] > rangelow:
+                    searchlist.append(carlist[i])
+        else:
+            searchlist = "Please type in a number for MPG pr Mileage searches"
+    if type == "Brand":
+        for i in range(len(carlist)):
+            if carlist[i][type] == searched:
+                searchlist.append(carlist[i])
+    if searched == "":
+        searchlist = "Please type in something to search"
+    elif not searchlist:
+        searchlist = "Sorry no results"
+    return render_template('search.html', Searched=searchlist)
+
 
 
 if __name__ == '__main__':
