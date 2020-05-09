@@ -9,6 +9,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
 
 
 class Cars(db.Model):
@@ -148,7 +151,13 @@ def find():
 
 
 
+# @manager.command
+# def run():
+#     app.run()
 
+
+# if __name__ == '__main__':
+#     manager.run()
 
 # if __name__ == "__main__":
 #     app.run()
